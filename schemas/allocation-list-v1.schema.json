@@ -1,0 +1,93 @@
+{
+  "$id": "https://cheapcoin.fun/schemas/allocation-list-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "asset": {
+      "additionalProperties": false,
+      "properties": {
+        "decimals": {
+          "maximum": 9,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "kind": {
+          "enum": [
+            "NATIVE_SOL",
+            "SPL_TOKEN"
+          ]
+        },
+        "mint": {
+          "anyOf": [
+            {
+              "$ref": "common-v1.schema.json#/$defs/address"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "decimals",
+        "kind",
+        "mint"
+      ],
+      "type": "object"
+    },
+    "campaignId": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "cluster": {
+      "$ref": "common-v1.schema.json#/$defs/cluster"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "recipients": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "$ref": "common-v1.schema.json#/$defs/address"
+          },
+          "amount": {
+            "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+          }
+        },
+        "required": [
+          "address",
+          "amount"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "recordType": {
+      "const": "allocation"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "snapshotSlot": {
+      "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+    },
+    "total": {
+      "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+    }
+  },
+  "required": [
+    "asset",
+    "campaignId",
+    "cluster",
+    "fixture",
+    "recordType",
+    "recipients",
+    "schemaVersion",
+    "snapshotSlot",
+    "total"
+  ],
+  "type": "object"
+}

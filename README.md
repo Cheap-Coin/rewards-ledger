@@ -1,43 +1,66 @@
-# CheapCoin Rewards Ledger
+# CheapCoin rewards ledger
 
-Public, MIT-licensed, append-only evidence for CheapCoin reward distributions.
-This repository publishes Diamond Drop artifacts, Safe transaction references,
-post-execution reconciliations, rules hashes, verified notices, and incident
-records without exposing production service credentials.
+Public, MIT-licensed, append-only evidence for Solana community campaigns and
+program deployments. The active ledger contains campaign manifests, allocation
+lists, unsigned transaction commitments, finalized signatures, reconciliation
+reports, deployment records, public rules, and notices.
 
-This repository does not create entitlement by itself. The canonical onchain
-distributor state and verified Robinhood Chain transactions control execution;
-the files here let anyone reproduce and audit what was proposed and completed.
-The validator pins the public protocol implementation as a Git submodule and
-recomputes eligibility, weights, randomness, allocations, Merkle roots and proofs,
-batch contents, and Safe/operator calldata from every published snapshot. V6 is
-the strict holder-only COST Diamond format, including the outbound-transfer flags
-and reproducible hidden-window selection. V7 is the separate weighted-random
-CHEAP Surprise format, including privacy-preserving event commitments, the fully
-reproducible score and candidate set, and future-block entropy. V3/V4/V5 remain
-historical formats. The validator also compiles
-the deployment schema directly from that exact protocol commit, rejects
-non-canonical deployment files, independently hashes their exact UTF-8 bytes,
-requires one active deployment at most, and verifies that every superseded
-record resolves to the active replacement.
+## Status and boundaries
 
-## Publication workflow
+CheapCoin is in `PRELAUNCH`. The checked-in JSON records under `fixtures/` are
+synthetic devnet validation vectors and are not launches, rewards, entitlements,
+partners, or executed mainnet activity. Active evidence directories are empty
+until the owner publishes independently reviewed records.
 
-1. Build an artifact from finalized CHEAP chain data using the pinned public
-   protocol implementation.
-2. Reproduce the allocation independently and compare every total and root.
-3. Have the reward Safe verify token, distributor, budget, roots, and calldata.
-4. Add the artifact in a pull request. Existing evidence files cannot be edited,
-   renamed, or deleted.
-5. After execution, append a reconciliation with transaction hashes and the
-   SHA-256 digest of the exact artifact.
+This repository never publishes X credentials, provider identity IDs, wallet-to-X
+mappings, private partner terms, signer keys, or signed transaction bytes. X
+analytics do not determine campaign recipients here: each allocation is supplied
+as an independent artifact with an exact budget and finalized snapshot slot.
 
-Run `pnpm install --frozen-lockfile && pnpm check` before opening a pull
-request. The validator compiles the published JSON Schemas, verifies exact
-rules-file hashes, and reproduces the checked-in drop and reconciliation test
-vectors even before the first live record exists. Deployment tag signatures and
-live-chain bytecode are verified by the protocol release commands before the
-submodule is advanced; this ledger independently checks the pinned files and
-their canonical identity. Report vulnerabilities
-privately according to `SECURITY.md`; never
-publish an exploitable issue first.
+Small campaigns may record Squads-approved native SOL or SPL batches. Large
+campaigns must reference an audit-pinned, manifest-verified Merkle rewards
+deployment. Native SOL wrapping/unwrapping, when applicable, is represented by
+separate transaction evidence; it is never inferred.
+
+The V1 evidence contract accepts legacy SPL Token campaign transfers only.
+Token-2022 campaign evidence requires a future schema that commits to extension,
+transfer-fee, and transfer-hook validation rather than treating all extensions as
+equivalent.
+
+## Verify and publish
+
+```bash
+pnpm install --frozen-lockfile
+pnpm check
+```
+
+The validator compiles all draft-2020-12 schemas, requires canonical JSON and
+strict fields, rejects normalized private/signing fields and credential-bearing
+URIs, validates decoded Solana addresses and signatures, prevents fixture records
+from being referenced by published evidence, reproduces allocation totals, checks
+unique sorted recipients and transaction sequences, verifies linked record hashes
+and identities, checks transaction finality, and proves reconciliation
+conservation. `pnpm format:evidence` only canonicalizes JSON; it does not fix
+commitments or authorize publication.
+
+Merkle evidence is pinned to the Solana Foundation rewards program ID
+`REWArDioXgQJ2fZKkfu9LCLjQfRwYWVVfsvcsR5hoXi` and the OtterSec-audited source
+commit `aa1cfd9276375e44e57d1917d110ff095fb6d475`. That pin is necessary but not
+sufficient: no mainnet campaign may be published until an independently verified
+deployment record proves that the deployed program binary corresponds to that
+source and audit baseline.
+
+Publication is append-only. Add a new version or superseding record instead of
+editing published schemas, rules, allocations, manifests, transactions,
+deployments, or reconciliations. Every value-moving record requires independent
+review of asset, programs, treasury, recipients/root, exact total, expiration,
+simulation, and finalized signatures.
+
+The CI checker treats the first commit whose trusted base lacks
+`schemas/common-v1.schema.json` as the one-time Solana V1 bootstrap. From the
+next trusted base onward, every protected schema, rule, and evidence path is
+strictly append-only.
+
+Canonical launch/program identity comes from the public protocol repository's
+signed manifests and must agree with these records. The developer retains commit
+and push control.

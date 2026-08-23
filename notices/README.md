@@ -1,8 +1,5 @@
-# Verified notices
+# Notices
 
-Publish signed project notices here, including the final Solana retirement
-notice and any later correction. Never replace or edit a previously published
-notice; append a new notice that clearly references it.
-
-`SOLANA-RETIREMENT-DRAFT.md` is an explicit pre-launch draft and is not a signed
-announcement.
+Signed or otherwise verifiable public incident, deprecation, and support notices.
+The legacy token is unsupported; current launch identity comes only from the
+signed launch manifest in the protocol repository.

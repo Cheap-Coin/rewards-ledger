@@ -7,7 +7,7 @@ Describe the user-visible or protocol behavior and why it is needed.
 - [ ] Ledger validation, schema compilation, deterministic reproduction, and append-only checks pass.
 - [ ] New evidence links to finalized chain data and reproduces every published total and commitment.
 - [ ] New dependency is necessary, exactly locked, and security-reviewed.
-- [ ] Value-moving change has an independent reviewer and Safe simulation.
+- [ ] Value-moving change has an independent reviewer and Squads/user-wallet simulation.
 
 ## Documentation and disclosure
 

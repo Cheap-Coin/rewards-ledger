@@ -1,0 +1,141 @@
+{
+  "$id": "https://cheapcoin.fun/schemas/transaction-record-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "campaignId": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "campaignManifestPath": {
+      "pattern": "^(?:fixtures/)?campaigns/[a-z0-9._/-]+\\.json$",
+      "type": "string"
+    },
+    "campaignManifestSha256": {
+      "$ref": "common-v1.schema.json#/$defs/sha256"
+    },
+    "cluster": {
+      "$ref": "common-v1.schema.json#/$defs/cluster"
+    },
+    "finalizedSlot": {
+      "anyOf": [
+        {
+          "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "SQUADS_BATCH",
+        "MERKLE_FUND",
+        "MERKLE_CLAWBACK",
+        "CLAIM",
+        "UNWRAP"
+      ]
+    },
+    "preparedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "recordType": {
+      "const": "transaction"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "signature": {
+      "anyOf": [
+        {
+          "$ref": "common-v1.schema.json#/$defs/signature"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "simulation": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "successful": {
+          "type": "boolean"
+        },
+        "unitsConsumed": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "error",
+        "successful",
+        "unitsConsumed"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "PREPARED",
+        "SIMULATED",
+        "EXECUTED",
+        "FAILED"
+      ]
+    },
+    "transactionId": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "unsignedArtifactSha256": {
+      "$ref": "common-v1.schema.json#/$defs/sha256"
+    },
+    "unsignedMessageSha256": {
+      "$ref": "common-v1.schema.json#/$defs/sha256"
+    }
+  },
+  "required": [
+    "campaignId",
+    "campaignManifestPath",
+    "campaignManifestSha256",
+    "cluster",
+    "finalizedSlot",
+    "fixture",
+    "kind",
+    "preparedAt",
+    "recordType",
+    "schemaVersion",
+    "sequence",
+    "signature",
+    "simulation",
+    "status",
+    "transactionId",
+    "unsignedArtifactSha256",
+    "unsignedMessageSha256"
+  ],
+  "type": "object"
+}

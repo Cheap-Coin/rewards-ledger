@@ -1,0 +1,23 @@
+{
+  "campaignId": "fixture-community-one",
+  "campaignManifestPath": "fixtures/campaigns/campaign-v1.json",
+  "campaignManifestSha256": "fab14438bfbd2b4acb96bac49ca4bbdf2e2df9512bf63cebee53d142dfff0b8d",
+  "cluster": "devnet",
+  "finalizedSlot": "110",
+  "fixture": true,
+  "kind": "SQUADS_BATCH",
+  "preparedAt": "2026-08-23T00:00:00Z",
+  "recordType": "transaction",
+  "schemaVersion": 1,
+  "sequence": 0,
+  "signature": "3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+  "simulation": {
+    "error": null,
+    "successful": true,
+    "unitsConsumed": 50000
+  },
+  "status": "EXECUTED",
+  "transactionId": "fixture-community-one-batch-zero",
+  "unsignedArtifactSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "unsignedMessageSha256": "4444444444444444444444444444444444444444444444444444444444444444"
+}

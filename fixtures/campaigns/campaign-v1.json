@@ -1,0 +1,32 @@
+{
+  "allocation": {
+    "path": "fixtures/allocations/campaign-v1.json",
+    "recipientCount": 2,
+    "recipientRoot": null,
+    "sha256": "fb6c30ebf31f957a635a92a46a63bc04fdbc7f1601253f6972519477f5c5cc34"
+  },
+  "asset": {
+    "decimals": 9,
+    "kind": "NATIVE_SOL",
+    "mint": null,
+    "tokenProgram": null
+  },
+  "budget": "1000",
+  "campaignId": "fixture-community-one",
+  "cluster": "devnet",
+  "delivery": "SQUADS_BATCH",
+  "expiresAt": "2026-09-01T00:00:00Z",
+  "fixture": true,
+  "launchManifestSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "recordType": "campaign",
+  "rewardsDeployment": null,
+  "rules": {
+    "path": "fixtures/rules/campaign-rules-v1.md",
+    "sha256": "2e692bf7019e18f5963bca6444cd090b79d18ed310eeaea70f47d00c9c5ad7df",
+    "uri": "https://cheapcoin.fun/fixtures/rules/campaign-rules-v1.md"
+  },
+  "schemaVersion": 1,
+  "snapshotSlot": "100",
+  "sourceTreasury": "CktRuQ2mttgRGkXJtyksdKHjUdc2C4TgDzyB98oEzy8",
+  "status": "RECONCILED"
+}

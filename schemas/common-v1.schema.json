@@ -1,0 +1,36 @@
+{
+  "$defs": {
+    "address": {
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "type": "string"
+    },
+    "cluster": {
+      "enum": [
+        "devnet",
+        "mainnet-beta"
+      ]
+    },
+    "nonnegativeInteger": {
+      "pattern": "^(0|[1-9][0-9]*)$",
+      "type": "string"
+    },
+    "positiveInteger": {
+      "pattern": "^[1-9][0-9]*$",
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature": {
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{64,90}$",
+      "type": "string"
+    },
+    "uri": {
+      "pattern": "^(https://|ipfs://|ar://)[^\\s]+$",
+      "type": "string"
+    }
+  },
+  "$id": "https://cheapcoin.fun/schemas/common-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

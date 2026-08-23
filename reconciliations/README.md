@@ -1,6 +1,5 @@
 # Reconciliations
 
-After a drop is finalized, append a reconciliation JSON file with the executed
-transaction hashes, exact totals, timestamp, and SHA-256 digest of its published
-artifact. Existing reconciliations are immutable; corrections are new files
-that explicitly reference the superseded record.
+Final campaign accounting. The validator requires budget to equal distributed
+plus unclaimed amounts and requires executed signature totals to reproduce the
+distributed amount.

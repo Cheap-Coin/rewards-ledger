@@ -1,0 +1,153 @@
+{
+  "$id": "https://cheapcoin.fun/schemas/deployment-record-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "purpose": {
+            "const": "MERKLE_REWARDS"
+          }
+        },
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "audit": {
+            "properties": {
+              "auditedCommit": {
+                "const": "aa1cfd9276375e44e57d1917d110ff095fb6d475"
+              }
+            },
+            "required": [
+              "auditedCommit"
+            ],
+            "type": "object"
+          },
+          "programId": {
+            "const": "REWArDioXgQJ2fZKkfu9LCLjQfRwYWVVfsvcsR5hoXi"
+          },
+          "sourceCommit": {
+            "const": "aa1cfd9276375e44e57d1917d110ff095fb6d475"
+          }
+        },
+        "required": [
+          "audit"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "properties": {
+    "audit": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "auditedCommit": {
+              "pattern": "^[0-9a-f]{40}$",
+              "type": "string"
+            },
+            "reportSha256": {
+              "$ref": "common-v1.schema.json#/$defs/sha256"
+            },
+            "reportUri": {
+              "$ref": "common-v1.schema.json#/$defs/uri"
+            }
+          },
+          "required": [
+            "auditedCommit",
+            "reportSha256",
+            "reportUri"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "binarySha256": {
+      "$ref": "common-v1.schema.json#/$defs/sha256"
+    },
+    "cluster": {
+      "$ref": "common-v1.schema.json#/$defs/cluster"
+    },
+    "deployedSlot": {
+      "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+    },
+    "deploymentSignature": {
+      "$ref": "common-v1.schema.json#/$defs/signature"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "programId": {
+      "$ref": "common-v1.schema.json#/$defs/address"
+    },
+    "purpose": {
+      "enum": [
+        "CHEAP_LOCK",
+        "MERKLE_REWARDS"
+      ]
+    },
+    "recordId": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "recordType": {
+      "const": "deployment"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "sourceCommit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "sourceUri": {
+      "$ref": "common-v1.schema.json#/$defs/uri"
+    },
+    "upgradeAuthority": {
+      "anyOf": [
+        {
+          "$ref": "common-v1.schema.json#/$defs/address"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "verifiedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "verifiedSlot": {
+      "$ref": "common-v1.schema.json#/$defs/positiveInteger"
+    }
+  },
+  "required": [
+    "audit",
+    "binarySha256",
+    "cluster",
+    "deployedSlot",
+    "deploymentSignature",
+    "fixture",
+    "frozen",
+    "programId",
+    "purpose",
+    "recordId",
+    "recordType",
+    "schemaVersion",
+    "sourceCommit",
+    "sourceUri",
+    "upgradeAuthority",
+    "verifiedAt",
+    "verifiedSlot"
+  ],
+  "type": "object"
+}

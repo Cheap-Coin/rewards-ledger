@@ -1,5 +1,6 @@
-# Validator fixtures
+# Validation fixtures
 
-These deterministic files are test vectors, not real distributions or holder
-entitlements. CI runs the same schema, allocation, proof, rules-binding, and
-calldata checks against them that it applies to published evidence.
+Everything below this directory is synthetic devnet test data. It is not a live
+campaign, deployment, entitlement, partner, price, transaction, or launch record.
+Every JSON object sets `fixture: true` and is validated identically to public
+evidence.

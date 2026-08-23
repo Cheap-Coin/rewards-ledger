@@ -1,0 +1,19 @@
+{
+  "audit": null,
+  "binarySha256": "5555555555555555555555555555555555555555555555555555555555555555",
+  "cluster": "devnet",
+  "deployedSlot": "90",
+  "deploymentSignature": "6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666",
+  "fixture": true,
+  "frozen": false,
+  "programId": "GgBaCs3NCBuZN12kCJgAW63ydqohFkHEdfdEXBPzLHq",
+  "purpose": "CHEAP_LOCK",
+  "recordId": "fixture-cheap-lock-devnet",
+  "recordType": "deployment",
+  "schemaVersion": 1,
+  "sourceCommit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "sourceUri": "https://github.com/Cheap-Coin/protocol",
+  "upgradeAuthority": "LbUiWL3xVV8hTFYBVdbTNrpDo41NKS6o3LHHuDzjfcY",
+  "verifiedAt": "2026-08-23T00:00:00Z",
+  "verifiedSlot": "91"
+}

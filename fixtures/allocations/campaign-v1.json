@@ -1,0 +1,24 @@
+{
+  "asset": {
+    "decimals": 9,
+    "kind": "NATIVE_SOL",
+    "mint": null
+  },
+  "campaignId": "fixture-community-one",
+  "cluster": "devnet",
+  "fixture": true,
+  "recipients": [
+    {
+      "address": "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi",
+      "amount": "400"
+    },
+    {
+      "address": "8qbHbw2BbbTHBW1sbeqakYXVKRQM8Ne7pLK7m6CVfeR",
+      "amount": "600"
+    }
+  ],
+  "recordType": "allocation",
+  "schemaVersion": 1,
+  "snapshotSlot": "100",
+  "total": "1000"
+}

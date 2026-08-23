@@ -1,3 +1,0 @@
-[submodule "vendor/cheap-protocol"]
-	path = vendor/cheap-protocol
-	url = https://github.com/Cheap-Coin/protocol.git

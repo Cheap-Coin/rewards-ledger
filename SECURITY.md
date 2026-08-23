@@ -1,39 +1,19 @@
 # Security policy
 
-## Reporting a vulnerability
+Report vulnerabilities privately through GitHub Security Advisories or email
+`Dev@cheapcoin.fun`. Include the affected commit or Solana address, impact, and
+safe reproduction steps. Never send seed phrases, private keys, OAuth tokens,
+production credentials, or personal data.
 
-Do not disclose an unpatched vulnerability in a public issue, discussion, social
-post, or chat. Use GitHub's **Report a vulnerability** button in the Security tab
-of the relevant public CheapCoin repository or email `Dev@cheapcoin.fun`. Include
-the affected commit or address, impact, reproduction steps, and any proof of
-concept that does not endanger users.
+Only current `main` and signed releases are supported. No fixture or draft proves
+a deployment or entitlement. A program is supported only when its public signed
+manifest, deployment record, audit reference, and finalized chain state agree.
 
-The project will acknowledge receipt through the same private channel. Never
-send seed phrases, private keys, production credentials, or user data with a
-report.
+In scope are schema/validator bypasses, allocation or reconciliation mismatch,
+path traversal, append-only bypass, identity disclosure, unsafe transaction
+commitments, false finality, duplicate claims, and deployment-manifest confusion.
+Do not move funds, test third-party systems without permission, access another
+person's data, or degrade services.
 
-The team will acknowledge a complete report, reproduce it, classify impact, and
-coordinate disclosure after a fix is available. Do not move funds, access data
-that is not yours, degrade service, phish users, or test against third-party
-systems without permission.
-
-## Supported versions
-
-The project is pre-deployment. Only the current `main` branch and the latest
-signed release are supported. Canonical deployments will be listed in the public
-protocol repository and in the app; an address not listed there is unsupported.
-
-## Scope
-
-In scope:
-
-- CHEAP protocol and reward distributor contracts;
-- deterministic allocation, artifact, and Merkle logic;
-- CheapCoin web application and public API;
-- authorization, signature, wallet, data-integrity, and payout issues.
-
-Social engineering, denial-of-service traffic, third-party wallet internals,
-Robinhood/Bankr infrastructure, and hypothetical findings without a CheapCoin
-impact are outside project control, though relevant integration risks are welcome.
-
-No bug bounty amount is promised unless a separate signed program says otherwise.
+The ledger contains no signing keys and performs no signing or submission. No
+bug bounty amount is promised unless a separate signed program states one.
